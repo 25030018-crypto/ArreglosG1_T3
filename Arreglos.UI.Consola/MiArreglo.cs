@@ -23,15 +23,50 @@ namespace Arreglos.Logica
         public bool EstaVacio => _tope == 0;
         //Métodos
         public void Llenar(int minimo, int maximo)
+
         {
             Random ORandom = new Random();
-            for (int i=0; i<N; i++)
+            for (int i = 0; i < N; i++)
             {
                 _arreglo[i] = ORandom.Next(minimo, maximo);
-                
+
             }
             _tope = N;
         }
+            //Metodo ordenar (Burbuja)
+            public void Ordenar()
+        {
+            Ordenar(true);
+        }
+            public void Ordenar( bool ascendente)
+        {
+            for (int i=0; i<_tope-1; i++)
+            {
+                for (int j=i+1; j<_tope; j++)
+                {
+                    if (ascendente)
+                    {
+                        if (_arreglo[i] > _arreglo[j]) ;
+                        {
+                            Cambiar(ref _arreglo[i], ref _arreglo[j]);
+                        }
+                    }
+                    else
+                    if (_arreglo[i] < _arreglo[j]) ;
+                    {
+                        Cambiar(ref _arreglo[i] , ref _arreglo[j]);
+                    }
+                }
+            }
+        }
+        //Metodo cambiar 
+        public void Cambiar (ref int  a,ref int b)
+        {
+            int aux = a;
+            a = b;
+            b = aux;
+        }
+        
         //Método ToString
         public override string ToString()
         {
