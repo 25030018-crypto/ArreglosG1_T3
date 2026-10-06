@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Arreglos.Logica
 {
@@ -105,6 +106,30 @@ namespace Arreglos.Logica
             _tope++;
 
             
+        }
+        //Metodo eliminar
+        public void Eliminar(int posicion)
+        {
+            if (EstaVacio)
+            {
+                throw new Exception("El arreglo esta vacio")
+;
+            }
+            if (posicion < 0)
+            {
+                posicion = 0;
+
+            }
+            if (posicion > _tope)
+            {
+                posicion = _tope;
+            }
+            for (int i= posicion; i<_tope-1; i++)
+            {
+                _arreglo[i] = _arreglo[i + 1];
+            }
+            _tope--;
+
         }
 
 
