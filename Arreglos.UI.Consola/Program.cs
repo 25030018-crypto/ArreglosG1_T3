@@ -1,7 +1,4 @@
 ﻿
-
-
-
 using Arreglos.Logica;
 
 Console.WriteLine("Operaciones de pila");
@@ -28,7 +25,26 @@ catch (Exception ex)
 {
     Console.WriteLine(ex.Message);
 }
-
+MiArreglo miArreglo = new MiArreglo(100);
+try
+{
+    Console.WriteLine("\nArreglo\n");
+    oMiArreglo.Llenar();
+    Console.WriteLine(oMiArreglo);
+    Console.ReadKey();
+    Console.WriteLine("\npares\n");
+    var verPares = oMiArreglo.ObtenerPares();
+    Console.WriteLine(verPares);
+    Console.ReadKey();
+    Console.WriteLine("\nPares ordenados\n");
+    verPares.Ordenar(true);
+    Console.WriteLine(verPares);
+    Console.ReadKey();
+}
+catch(Exception)
+{
+    throw;
+}
 //oMiArreglo.Llenar(1, 20);
 
 //Console.WriteLine("Arreglo desordenado\n");
