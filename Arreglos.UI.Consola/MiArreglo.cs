@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
@@ -157,6 +158,48 @@ namespace Arreglos.Logica
 
             return arregloPares;
         }
+        //Método ObtenerPrimos
+        public MiArreglo ObtenerPrimos()
+        {
+            int contadorPrimos = 0;
+            for (int i = 0; i < _tope; i++)
+            {
+                if (_arreglo[i] == 1) { continue; }
+                if (EsPrimo(_arreglo[i] ))
+                {
+                    contadorPrimos++;
+                }
+                
+            }
+            var arregloPrimos = new MiArreglo(contadorPrimos);
+
+            for (int i = 0; i < _tope; i++)
+
+            {
+                if (EsPrimo(_arreglo[i]))
+                {
+                    arregloPrimos.Agregar(_arreglo[i]);
+                }
+            }
+            return arregloPrimos;
+        }
+        //Metodo EsPrimo
+        private bool EsPrimo(int n )
+        {
+            for (int i = 2; i < n;  i++)
+            {
+                if (_arreglo[i] == 1) { continue; }
+                if (n % i == 0)
+                {
+                    return false;
+                }
+
+            }
+            
+
+            return true;
+        }
+
 
         //Método ToString
         public override string ToString()
