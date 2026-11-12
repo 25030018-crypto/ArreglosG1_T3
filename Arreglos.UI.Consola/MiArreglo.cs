@@ -158,6 +158,16 @@ namespace Arreglos.Logica
 
             return arregloPares;
         }
+         //Metodo Es Par
+         private bool EsPar(int n)
+        {
+            if (n %2 ==0)
+            {
+                return true;
+            }
+            return false;
+        }
+
         //Método ObtenerPrimos
         public MiArreglo ObtenerPrimos()
         {
